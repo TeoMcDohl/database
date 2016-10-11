@@ -1,0 +1,6 @@
+﻿  stdafx.cpp
+  database.cpp
+c:\users\cwood\source\repos\database\database\database\menu.h(83): warning C4715: 'menu::heroMenu': not all control paths return a value
+c:\users\cwood\source\repos\database\database\database\menu.h(120): warning C4715: 'menu::mapMenu': not all control paths return a value
+  database.vcxproj -> C:\Users\cwood\Source\Repos\database\database\Debug\database.exe
+  database.vcxproj -> C:\Users\cwood\Source\Repos\database\database\Debug\database.pdb (Full PDB)
