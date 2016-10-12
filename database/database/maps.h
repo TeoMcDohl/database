@@ -11,7 +11,7 @@ class maps
 {
 public:
 
-	int bhb()
+	static int bhb()
 	{
 		string bhb;
 		string bhbint;

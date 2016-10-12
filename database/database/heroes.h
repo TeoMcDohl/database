@@ -10,7 +10,7 @@ using std::string;
 class heroes
 {
 public:
-	void Raynor()
+	static void Raynor()
 	{
 		string jimmy;
 		int jimmyint;

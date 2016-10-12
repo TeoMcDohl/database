@@ -5,28 +5,25 @@
 int main()
 {
 	using namespace std;
-	menu coreMenu;
-	heroes coreHeroes;
-	maps coreMap;
-	coreMenu.mainTitle();
+	menu::mainTitle();
 	int topmenu;
-	topmenu = coreMenu.topMenu();
+	topmenu = menu::topMenu();
 	while (topmenu != 4)
 	{
 		if (topmenu == 1)
 		{
-			coreMenu.heroMenu(coreHeroes);
+			menu::heroMenu();
 		}
 		else if(topmenu == 2)
 		{
-			coreMenu.mapMenu(coreMap);
+			menu::mapMenu();
 		}
 		else if (topmenu == 3)
 		{
 			cout << "Will be another menu for roles!";
 		}
 
-		topmenu = coreMenu.topMenu();
+		topmenu = menu::topMenu();
 	}
     return 0;
 }

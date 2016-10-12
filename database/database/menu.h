@@ -6,6 +6,7 @@
 #include <sstream>
 #include "heroes.h"
 #include "maps.h"
+#include "input.h"
 using namespace std;
 using std::string;
 
@@ -13,7 +14,7 @@ class menu
 {
 public:
 
-	void mainTitle()
+	static void mainTitle()
 	{
 		cout << "MAIN MENU TITLE";
 		cout << endl;
@@ -21,9 +22,9 @@ public:
 		cout << "This thing is shit. Sowwies.\n";
 	}
 
-	int topMenu()
+	static int topMenu()
 	{
-		string topMenu;
+		
 		int topMenuint;
 		cout << endl;
 		cout << "1: Heroes\n";
@@ -31,58 +32,44 @@ public:
 		cout << "3: Roles\n";
 		cout << "4: Quit\n";
 		cout << endl;
-		getline(cin, topMenu);
-		stringstream topMenuStream(topMenu);
-		if (topMenuStream >> topMenuint)
-		{
-			return topMenuint;
-		}
-		else
-		{
-			cout << "\n*Invalid*\n";
-			return -1;
-		}
-		
+		topMenuint = input::cinput();
+		return topMenuint;	
 
 	}
-	int heroMenu(heroes& coreHeroes)
+	static int heroMenu()
 	{
-		string heroMenustring;
 		int heroMenuint;
 		cout << endl;
 		cout << "1: Raynor\n";
 		cout << "2: Jaina\n";
 		cout << "3: Return to Main Menu\n";
 		cout << endl;
-		getline(cin, heroMenustring);
-		stringstream topMenuStream(heroMenustring);
-		if (topMenuStream >> heroMenuint)
-		{
-			if (heroMenuint == 1)
+		heroMenuint = input::cinput();
+		if (heroMenuint == 1)
 			{
-				coreHeroes.Raynor();
-				heroMenu(coreHeroes);
+				heroes::Raynor();
+				heroMenu();
 				return 0;
 			}
 			else if (heroMenuint == 2)
 			{
 				cout << "Will be about Jaina!\n";
-				heroMenu(coreHeroes);
+				heroMenu();
 			}
 			else if (heroMenuint == 3)
 			{
 			
 				return 0;
 			}
+			else if (heroMenuint != 1 && heroMenuint != 2 && heroMenuint != 3)
+			{
+				heroMenu();
+			}
 		}
-		else
-		{
-			cout << "\n*Invalid*\n";
-			return -1;
-		}
-	}
+		
+	
 
-	int mapMenu(maps& coreMap)
+	static int mapMenu()
 	{
 		string mapMenustring;
 		int mapMenuint;
@@ -97,14 +84,14 @@ public:
 		{
 			if (mapMenuint == 1)
 			{
-				coreMap.bhb();
-				mapMenu(coreMap);
+				maps::bhb();
+				mapMenu();
 				return 0;
 			}
 			else if (mapMenuint == 2)
 			{
 				cout << "Will be about Towers of Doom!\n";
-				mapMenu(coreMap);
+				mapMenu();
 			}
 			else if (mapMenuint == 3)
 			{
